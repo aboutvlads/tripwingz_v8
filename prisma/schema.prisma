@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Deal {
+  id              String   @id @default(cuid())
+  title           String
+  destination     String
+  description     String?
+  price           Float
+  originalPrice   Float
+  departureAirport String
+  destinationAirport String
+  airline         String
+  flightClass     String   @default("Economy")
+  departureTime   DateTime
+  arrivalTime     DateTime
+  stops           Int      @default(0)
+  baggage         String?
+  amenities       String   // Stored as JSON string
+  imageUrl        String
+  startDate       DateTime
+  endDate         DateTime
+  status          String   @default("active")
+  tags            String   // Stored as JSON string
+  isHot           Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String   // Hashed
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

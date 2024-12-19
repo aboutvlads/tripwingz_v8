@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "deals"
+    label: "Flight Deals"
+    folder: "content/deals"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Destination", name: "destination", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Price", name: "price", widget: "string"}
+      - {label: "Original Price", name: "originalPrice", widget: "string"}
+      - {label: "Travel Date", name: "date", widget: "string"}
+      - {label: "Stops", name: "stops", widget: "string", default: "1 stop"}
+      - {label: "From", name: "from", widget: "string"}
+      - {label: "Class", name: "class", widget: "select", options: ["Economy", "Business", "First"]}
+      - {label: "Airline", name: "airline", widget: "string"}
+      - {label: "Departure Time", name: "departureTime", widget: "string"}
+      - {label: "Arrival Time", name: "arrivalTime", widget: "string"}
+      - {label: "Duration", name: "duration", widget: "string"}
+      - {label: "Baggage", name: "baggage", widget: "string", default: "23 kg"}
+      - label: "Amenities"
+        name: "amenities"
+        widget: "select"
+        multiple: true
+        options: ["Wi-Fi", "In-flight Meals", "Entertainment", "USB Power"]
+      - label: "Tags"
+        name: "tags"
+        widget: "select"
+        multiple: true
+        options: ["foodie", "rave", "girlstrip", "date", "cartrip", "friends"]
+      - {label: "Hot Deal", name: "isHot", widget: "boolean", default: false}
+      - {label: "Status", name: "status", widget: "select", options: ["draft", "published"], default: "published"}
+      - {label: "Description", name: "description", widget: "markdown"}
