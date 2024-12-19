@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand Colors */
+  --color-primary: #000000;
+  --color-secondary: #666666;
+  --color-accent: #FFE978;
+  --color-background: #FFFFFF;
+  --color-surface: #F8F8F8;
+  --color-muted: #E5E5E5;
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Component Colors */
+  --color-card-bg: #FFFFFF;
+  --color-card-border: #EAEAEA;
+  --color-button-primary: #FFE978;
+  --color-button-primary-hover: #FFE15E;
+  --color-button-text: #000000;
+  --color-tag-bg: rgba(255, 233, 120, 0.2);
+  --color-tag-text: #000000;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-primary antialiased;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-secondary hover:text-primary transition-colors;
+  }
+  
+  .button-primary {
+    @apply bg-[#FFE978] text-black font-medium px-6 py-2 rounded-full 
+           hover:bg-[#FFE15E] transition-colors duration-200;
+  }
+  
+  .button-secondary {
+    @apply bg-white text-black border border-[#EAEAEA] font-medium px-6 py-2 
+           rounded-full hover:bg-[#F8F8F8] transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white border border-[#EAEAEA] rounded-lg overflow-hidden 
+           hover:shadow-lg transition-shadow duration-200;
+  }
+}
